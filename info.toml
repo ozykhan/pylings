@@ -1,0 +1,494 @@
+# Hints for every exercise. pylings reads this.
+# Order matters: it is the order you work through them.
+
+welcome_message = '''
+       Welcome to...
+                 _ _
+      _ __  _   _| (_)_ __   __ _ ___
+     | '_ \| | | | | | '_ \ / _` / __|
+     | |_) | |_| | | | | | | (_| \__ \
+     | .__/ \__, |_|_|_| |_|\__, |___/
+     |_|    |___/            |___/
+
+Is this your first time? Don't worry, pylings is made for beginners!
+We are going to teach you a lot of things about Python, but before we can
+get started, here are some notes about how pylings operates:
+
+1. The central concept behind pylings is that you solve exercises. These
+   exercises usually contain some code that fails to run or fails its checks.
+   You need to edit the file to make it pass.
+2. When you first run pylings, it checks every exercise and opens the first
+   pending one in watch mode. Every time you save the file it re-runs the
+   exercise. Once it passes, press `n` to move on to the next one.
+3. If you're stuck on an exercise, press `h` for a hint. Press `l` to see
+   every exercise, jump to one, or reset one.
+4. If an exercise doesn't make sense to you, feel free to compare your
+   solution with the one in `solutions/` after it passes.
+
+Got all that? Great! Press ENTER and pylings will find your first exercise.
+'''
+
+final_message = '''
+Go build something. Then come back for the next section.
+'''
+
+[[exercises]]
+name = "basics1"
+path = "exercises/01_basics/basics1.py"
+hint = """
+Put an f directly before the opening quote, and the variable in braces:
+    f"Hello, {name}!"
+Without the f prefix you get the literal text {name}.
+"""
+
+[[exercises]]
+name = "basics2"
+path = "exercises/01_basics/basics2.py"
+hint = """
+`not value` turns any object into a bool: True when the object is
+falsy, False when it is truthy. That is the whole exercise.
+"""
+
+[[exercises]]
+name = "basics3"
+path = "exercises/01_basics/basics3.py"
+hint = """
+Use `is None`, not truthiness. A conditional expression reads well
+here:
+    return X if port is None else port
+"""
+
+[[exercises]]
+name = "basics4"
+path = "exercises/01_basics/basics4.py"
+hint = """
+One chained comparison is enough:
+    return 100 <= code <= 599
+"""
+
+[[exercises]]
+name = "basics5"
+path = "exercises/01_basics/basics5.py"
+hint = """
+divmod(total, 60) already returns exactly the (minutes, seconds)
+tuple you need. One line.
+"""
+
+[[exercises]]
+name = "basics6"
+path = "exercises/01_basics/basics6.py"
+hint = """
+You do not need parentheses or a temporary variable. The whole body of
+each function is a single line built from commas.
+"""
+
+[[exercises]]
+name = "basics7"
+path = "exercises/01_basics/basics7.py"
+hint = """
+One function is `a == b`, the other is `a is b`. The names tell you
+which is which.
+"""
+
+[[exercises]]
+name = "strings1"
+path = "exercises/02_strings/strings1.py"
+hint = """
+Two methods, chained: one removes surrounding whitespace, one
+lowercases. Order does not matter here.
+    raw.strip().lower()
+"""
+
+[[exercises]]
+name = "strings2"
+path = "exercises/02_strings/strings2.py"
+hint = """
+Lowercase it, split it on whitespace with no argument, then join the
+pieces with a hyphen:
+    "-".join(title.lower().split())
+"""
+
+[[exercises]]
+name = "strings3"
+path = "exercises/02_strings/strings3.py"
+hint = """
+last_n: a negative start and an empty stop -> text[-n:]
+without_ends: start at 1, stop one before the end -> text[1:-1]
+"""
+
+[[exercises]]
+name = "strings4"
+path = "exercises/02_strings/strings4.py"
+hint = """
+Chain two removeprefix calls. Try the longer prefix first and think
+about why the order matters -- or rather, why here it does not.
+"""
+
+[[exercises]]
+name = "strings5"
+path = "exercises/02_strings/strings5.py"
+hint = """
+One f-string. The spec you want combines a comma and two decimals:
+    f"{currency} {amount:,.2f}"
+"""
+
+[[exercises]]
+name = "strings6"
+path = "exercises/02_strings/strings6.py"
+hint = """
+text.encode("utf-8") gives you a bytes object. Take its len().
+"""
+
+[[exercises]]
+name = "coll1"
+path = "exercises/03_collections/coll1.py"
+hint = """
+Build a new list literal with the single value first and the rest
+spread into it:
+    return [first, *rest]
+"""
+
+[[exercises]]
+name = "coll2"
+path = "exercises/03_collections/coll2.py"
+hint = """
+Two statements. Unpack with a star, then return the pair:
+    first, *rest = values
+    return first, rest
+"""
+
+[[exercises]]
+name = "coll3"
+path = "exercises/03_collections/coll3.py"
+hint = """
+count_or_default is one call to .get with a second argument.
+total is sum() over data.values().
+"""
+
+[[exercises]]
+name = "coll4"
+path = "exercises/03_collections/coll4.py"
+hint = """
+unique_sorted: sorted() accepts any iterable and always returns a
+list, so sorted(set(values)) does both jobs at once.
+only_in_first: convert both to sets and subtract.
+"""
+
+[[exercises]]
+name = "coll5"
+path = "exercises/03_collections/coll5.py"
+hint = """
+One comprehension with both a transform and a filter:
+    [v * v for v in values if v % 2 == 0]
+"""
+
+[[exercises]]
+name = "coll6"
+path = "exercises/03_collections/coll6.py"
+hint = """
+index_by_length: {word: len(word) for word in words}
+invert: loop over data.items() and put the value first.
+"""
+
+[[exercises]]
+name = "coll7"
+path = "exercises/03_collections/coll7.py"
+hint = """
+The key returns a tuple. Negate the score so bigger scores sort
+first, and leave the name as-is so it sorts A to Z:
+    key=lambda row: (-row[1], row[0])
+"""
+
+[[exercises]]
+name = "coll8"
+path = "exercises/03_collections/coll8.py"
+hint = """
+top_words: Counter(text.lower().split()).most_common(n)
+group_by_first_letter: make a defaultdict(list), loop and append,
+then wrap it in dict(...) before returning so the caller gets a
+plain dict.
+"""
+
+[[exercises]]
+name = "func1"
+path = "exercises/04_functions/func1.py"
+hint = """
+Give path a default of "/" and scheme a default of "https" in the
+signature, then build the URL with an f-string.
+"""
+
+[[exercises]]
+name = "func2"
+path = "exercises/04_functions/func2.py"
+hint = """
+Signature: basket: list[str] | None = None
+Body: if basket is None, assign a fresh [] to it, then append and
+return.
+"""
+
+[[exercises]]
+name = "func3"
+path = "exercises/04_functions/func3.py"
+hint = """
+tally: sum(numbers) plus start.
+to_query: join over params.items() with an f-string for each pair.
+"""
+
+[[exercises]]
+name = "func4"
+path = "exercises/04_functions/func4.py"
+hint = """
+Put a bare * after host. port has no default, timeout defaults to
+5.0. The body is one f-string.
+"""
+
+[[exercises]]
+name = "func5"
+path = "exercises/04_functions/func5.py"
+hint = """
+make_multiplier: define an inner function that returns n * factor,
+then return the inner function itself -- no parentheses.
+make_counter: the inner function needs `nonlocal count` before it can
+do count += 1.
+"""
+
+[[exercises]]
+name = "func6"
+path = "exercises/04_functions/func6.py"
+hint = """
+Inside `logged`, define wrapper(*args, **kwargs), record fn.__name__
+in CALLS, then return fn(*args, **kwargs). Put @functools.wraps(fn)
+on wrapper, and return wrapper from logged.
+"""
+
+[[exercises]]
+name = "func7"
+path = "exercises/04_functions/func7.py"
+hint = """
+Put @functools.cache directly above the def. That is the entire
+change.
+"""
+
+[[exercises]]
+name = "cls1"
+path = "exercises/05_classes/cls1.py"
+hint = """
+In __init__, assign start to self.value.
+In increment, do self.value += by. It returns nothing.
+"""
+
+[[exercises]]
+name = "cls2"
+path = "exercises/05_classes/cls2.py"
+hint = """
+__repr__ should return exactly: Point(x=1, y=2)
+__str__ should return exactly: (1, 2)
+Both are f-strings over self.x and self.y.
+"""
+
+[[exercises]]
+name = "cls3"
+path = "exercises/05_classes/cls3.py"
+hint = """
+__eq__: if not isinstance(other, Tag), return NotImplemented.
+Otherwise compare self.name to other.name.
+__hash__: return hash(self.name) -- the same field you compared.
+"""
+
+[[exercises]]
+name = "cls4"
+path = "exercises/05_classes/cls4.py"
+hint = """
+fahrenheit getter: self._celsius * 9 / 5 + 32
+The setter is decorated @fahrenheit.setter, takes (self, value), and
+assigns (value - 32) * 5 / 9 to self._celsius.
+"""
+
+[[exercises]]
+name = "cls5"
+path = "exercises/05_classes/cls5.py"
+hint = """
+from_minutes is a @classmethod taking (cls, minutes) and returning
+cls(minutes * 60).
+is_valid is a @staticmethod taking just (seconds).
+"""
+
+[[exercises]]
+name = "cls6"
+path = "exercises/05_classes/cls6.py"
+hint = """
+Decorate with @dataclass(frozen=True, slots=True) and declare the
+two fields as annotations, with port defaulting to 8080. You write
+no methods at all.
+"""
+
+[[exercises]]
+name = "cls7"
+path = "exercises/05_classes/cls7.py"
+hint = """
+Rectangle.__init__ takes (self, width, height), calls
+super().__init__("rectangle"), then stores width and height.
+area returns self.width * self.height.
+"""
+
+[[exercises]]
+name = "err1"
+path = "exercises/06_errors/err1.py"
+hint = """
+try: return int(text)
+except ValueError: return default
+"""
+
+[[exercises]]
+name = "err2"
+path = "exercises/06_errors/err2.py"
+hint = """
+Put the division in try. In except ZeroDivisionError, append "error"
+and return None. In else, append "ok" and return the result. In
+finally, append "cleanup".
+"""
+
+[[exercises]]
+name = "err3"
+path = "exercises/06_errors/err3.py"
+hint = """
+class ValidationError(ValueError). In __init__, store field and
+reason on self, then call super().__init__ with the combined
+message so str(exc) works.
+"""
+
+[[exercises]]
+name = "err4"
+path = "exercises/06_errors/err4.py"
+hint = """
+try: return int(raw)
+except ValueError as exc:
+    raise ConfigError(f"bad port: {raw!r}") from exc
+"""
+
+[[exercises]]
+name = "err5"
+path = "exercises/06_errors/err5.py"
+hint = """
+__enter__ appends "enter" to self.events and returns self.
+__exit__ takes (self, exc_type, exc, tb), appends "exit", and
+returns False.
+"""
+
+[[exercises]]
+name = "err6"
+path = "exercises/06_errors/err6.py"
+hint = """
+Decorate with @contextlib.contextmanager. Append "enter" to log,
+then `try: yield "resource"` and `finally: log.append("exit")`.
+"""
+
+[[exercises]]
+name = "iter1"
+path = "exercises/07_iterators/iter1.py"
+hint = """
+A comprehension over enumerate(lines, start=1), unpacking into two
+loop variables:
+    [f"{i}. {line}" for i, line in enumerate(lines, start=1)]
+"""
+
+[[exercises]]
+name = "iter2"
+path = "exercises/07_iterators/iter2.py"
+hint = """
+dict() accepts an iterable of pairs, and zip produces exactly that:
+    return dict(zip(keys, values, strict=True))
+"""
+
+[[exercises]]
+name = "iter3"
+path = "exercises/07_iterators/iter3.py"
+hint = """
+A while loop: while n > 0, yield n, then n -= 1. There is no return
+statement.
+"""
+
+[[exercises]]
+name = "iter4"
+path = "exercises/07_iterators/iter4.py"
+hint = """
+any_over: any(value > limit for value in values)
+total_length: sum(len(word) for word in words)
+No square brackets are needed inside the parentheses.
+"""
+
+[[exercises]]
+name = "iter5"
+path = "exercises/07_iterators/iter5.py"
+hint = """
+flatten: list(chain.from_iterable(groups))
+first_n: list(islice(iterable, n))
+"""
+
+[[exercises]]
+name = "iter6"
+path = "exercises/07_iterators/iter6.py"
+hint = """
+Make __iter__ a generator: a local `current = self.start`, then
+while current > 0: yield current; current -= 1.
+Do not store the counter on self, or the second loop will find it at
+zero.
+"""
+
+[[exercises]]
+name = "typ1"
+path = "exercises/08_typing/typ1.py"
+hint = """
+text is a str, times is an int, and the function returns a str:
+    def repeat(text: str, times: int) -> str:
+"""
+
+[[exercises]]
+name = "typ2"
+path = "exercises/08_typing/typ2.py"
+hint = """
+.get returns None when the key is missing, so the return type is
+int | None.
+"""
+
+[[exercises]]
+name = "typ3"
+path = "exercises/08_typing/typ3.py"
+hint = """
+words is a list of strings, and the result maps each string to its
+integer length:
+    def length_index(words: list[str]) -> dict[str, int]:
+"""
+
+[[exercises]]
+name = "typ4"
+path = "exercises/08_typing/typ4.py"
+hint = """
+Loop over items and return the first one you see; if the loop ends
+without returning, return default.
+"""
+
+[[exercises]]
+name = "typ5"
+path = "exercises/08_typing/typ5.py"
+hint = """
+Decorate with @runtime_checkable, inherit from Protocol, and declare
+the method with an ellipsis body:
+
+    @runtime_checkable
+    class Closeable(Protocol):
+        def close(self) -> None: ...
+"""
+
+[[exercises]]
+name = "typ6"
+path = "exercises/08_typing/typ6.py"
+hint = """
+Inherit from TypedDict and declare the three keys as annotations.
+Wrap only the email one in NotRequired:
+
+    class UserRow(TypedDict):
+        id: int
+        name: str
+        email: NotRequired[str]
+"""

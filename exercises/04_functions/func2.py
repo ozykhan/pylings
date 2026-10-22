@@ -16,10 +16,17 @@
 
 from pylings_check import eq
 
+
 def add_item(item: str, basket: list[str] | None = None) -> list[str]:
     # Append item to basket and return it.
     # When no basket is given, start a FRESH empty one each call.
-    ...
+
+    if basket == None:
+        return [item]
+    else:
+        basket.append(item)
+
+    return basket
 
 
 # --- checks (do not edit) ------------------------------------------
@@ -31,10 +38,12 @@ mine = ["x"]
 eq(add_item("y", mine), ["x", "y"])
 eq(mine, ["x", "y"], "a basket that was passed in is appended to in place")
 
+
 # Demonstration of the bug, so you have seen it happen.
 def broken(item, basket=[]):
     basket.append(item)
     return basket
+
 
 eq(broken(1), [1])
 eq(broken(2), [1, 2], "the default list survived between calls")

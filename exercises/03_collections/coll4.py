@@ -15,14 +15,17 @@
 
 from pylings_check import eq
 
+
 def unique_sorted(values: list[int]) -> list[int]:
     # Duplicates removed, ascending.
-    return ...
+
+    return sorted(set(values))
 
 
 def only_in_first(a: list[str], b: list[str]) -> set[str]:
     # Everything in a that is not in b.
-    return ...
+
+    return set(a) - set(b)
 
 
 # --- checks (do not edit) ------------------------------------------

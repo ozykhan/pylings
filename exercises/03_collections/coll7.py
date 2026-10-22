@@ -14,10 +14,14 @@
 
 from pylings_check import eq
 
+
 def leaderboard(rows: list[tuple[str, int]]) -> list[tuple[str, int]]:
     # (name, score) rows, highest score first.
     # Ties broken by name, A to Z.
-    return ...
+    return sorted(
+        rows,
+        key=lambda row: (-row[1], row[0]),
+    )
 
 
 # --- checks (do not edit) ------------------------------------------

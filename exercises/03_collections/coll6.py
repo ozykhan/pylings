@@ -13,14 +13,16 @@
 
 from pylings_check import eq
 
+
 def index_by_length(words: list[str]) -> dict[str, int]:
     # Each word mapped to its length.
-    return ...
+    return {v: len(v) for v in words}
 
 
 def invert(data: dict[str, int]) -> dict[int, str]:
     # Swap keys and values.
-    return ...
+
+    return {v: k for k, v in data.items()}
 
 
 # --- checks (do not edit) ------------------------------------------

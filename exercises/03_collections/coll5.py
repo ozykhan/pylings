@@ -13,10 +13,12 @@
 
 from pylings_check import eq
 
+
 def squares_of_evens(values: list[int]) -> list[int]:
     # Square each even number, keep the original order.
     # Use a comprehension.
-    return ...
+
+    return [v * v for v in values if v % 2 == 0]
 
 
 # --- checks (do not edit) ------------------------------------------

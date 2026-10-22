@@ -19,13 +19,20 @@ from collections import Counter, defaultdict
 def top_words(text: str, n: int) -> list[tuple[str, int]]:
     # The n most common words, most common first.
     # Lowercase, split on whitespace.
-    return ...
+    c = Counter(text.lower().split())
+
+    return c.most_common(n)
 
 
 def group_by_first_letter(words: list[str]) -> dict[str, list[str]]:
     # {"a": ["ant", "ape"], ...}, preserving the input order.
     # Return a plain dict.
-    return ...
+    groups = defaultdict(list)
+
+    for word in words:
+        groups[word[0]].append(word)
+
+    return dict(groups)
 
 
 # --- checks (do not edit) ------------------------------------------

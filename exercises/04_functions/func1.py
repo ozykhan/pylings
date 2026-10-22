@@ -15,9 +15,10 @@
 
 from pylings_check import eq
 
-def make_url(host: str, path, scheme) -> str:
+
+def make_url(host: str, path="/", scheme="https") -> str:
     # TODO: give path the default "/" and scheme the default "https"
-    return ...
+    return scheme + "://" + host + path
 
 
 # --- checks (do not edit) ------------------------------------------

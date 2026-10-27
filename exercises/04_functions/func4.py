@@ -17,9 +17,10 @@
 
 from pylings_check import eq, raises
 
-def connect(host: str, port: int, timeout: float = 5.0) -> str:
+
+def connect(host: str, *, port: int, timeout: float = 5.0) -> str:
     # TODO: make port and timeout keyword-only.
-    return ...
+    return f"{host}:{port} t={timeout}"
 
 
 # --- checks (do not edit) ------------------------------------------

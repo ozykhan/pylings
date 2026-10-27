@@ -12,20 +12,30 @@
 # Make the checks at the bottom pass.
 # Stuck? Press `h` in pylings for a hint.
 
-from pylings_check import eq
-
 from collections.abc import Callable
+
+from pylings_check import eq
 
 
 def make_multiplier(factor: int) -> Callable[[int], int]:
     # Return a function that multiplies its argument by factor.
-    ...
+    def multiply_by_factor(n: int) -> int:
+        return n * factor
+
+    return multiply_by_factor
 
 
 def make_counter() -> Callable[[], int]:
     # Return a function that returns 1, then 2, then 3, ...
     # Each counter made here is independent.
-    ...
+    x = 0
+
+    def counter() -> int:
+        nonlocal x
+        x += 1
+        return x
+
+    return counter
 
 
 # --- checks (do not edit) ------------------------------------------

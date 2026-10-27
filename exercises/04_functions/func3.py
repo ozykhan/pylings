@@ -12,14 +12,17 @@
 
 from pylings_check import eq
 
+
 def tally(*numbers: int, start: int = 0) -> int:
     # Add up every positional argument, beginning from start.
-    return ...
+
+    return start + sum(numbers)
 
 
 def to_query(**params: str) -> str:
     # "a=1&b=2", in the order the arguments were given.
-    return ...
+
+    return "&".join(f"{key}={value}" for key, value in params.items())
 
 
 # --- checks (do not edit) ------------------------------------------

@@ -29,7 +29,12 @@ def logged(fn: Callable[..., Any]) -> Callable[..., Any]:
     # Return a replacement that appends fn.__name__ to CALLS, then
     # calls fn with whatever arguments it was given and returns the
     # result unchanged.
-    ...
+    @functools.wraps(fn)
+    def wrapper(*args: Any, **kwargs: Any) -> Any:
+        CALLS.append(fn.__name__)
+        return fn(*args, **kwargs)
+
+    return wrapper
 
 
 # --- checks (do not edit) ------------------------------------------
